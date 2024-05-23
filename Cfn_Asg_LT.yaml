@@ -33,7 +33,7 @@ Resources:
   myASG:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
-      AutoScalingGroupName: osvaldo-asg-cfn-17
+      AutoScalingGroupName: sait-asg-cfn
       DesiredCapacity: 1
       HealthCheckGracePeriod: 300
       HealthCheckType: ELB
@@ -60,7 +60,7 @@ Resources:
   myALB:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
-      Name: osvaldo-asg-cfn-08
+      Name: sait-asg-cfn-17
       SecurityGroups: 
         - !Ref mySecGrp 
       Subnets: !Ref mySubnets
@@ -90,7 +90,7 @@ Resources:
           </html>" > /var/www/html/index.html
           systemctl start httpd
           systemctl enable httpd
-      LaunchTemplateName: osvaldo-asg-cfn-08
+      LaunchTemplateName: sait-asg-cfn-17
 
   myTargetGrp:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
@@ -101,7 +101,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 5
       HealthyThresholdCount: 3
-      Name: osvaldo-asg-cfn-17
+      Name: sait-asg-cfn
       Port: 80
       Protocol: HTTP
       TargetType: instance
@@ -123,7 +123,7 @@ Resources:
           CidrIp: 0.0.0.0/0
       Tags: 
         - Key: Name
-          Value: osvaldo-cfn-asg-08
+          Value: sait-cfn-asg-17
       VpcId: !Ref myVPC
 
 
